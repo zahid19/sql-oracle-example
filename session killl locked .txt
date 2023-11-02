@@ -1,0 +1,25 @@
+SELECT a.inst_id,
+status,
+username,
+machine,
+event,
+blocking_session,
+sql_id,
+last_call_et,
+status,
+'alter system kill session ''' || a.sid || ',' || serial# || ''';'
+FROM gv$access a, gv$session b
+WHERE a.inst_id = b.inst_id AND a.sid = b.sid
+AND object = 'EBS_FAB_INV_DATA_TEMP';
+
+
+
+-------------
+
+
+select sid,serial#,username,status from v$session where sid=36;
+
+----------------
+
+alter system kill session '36,42466' immediate;
+

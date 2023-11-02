@@ -1,4 +1,4 @@
--- # LISTAGG 2 COLUMN (COMMA SEPERATED OUTPUT)
+-- ### LISTAGG 2 COLUMN (COMMA SEPERATED OUTPUT)
 
 SELECT 
 (SELECT LISTAGG (EMP_ID || ',' || coalesce(EMP_NAME, ' '), ';') WITHIN GROUP (ORDER BY EMP_ID)
@@ -6,9 +6,8 @@ SELECT
                             WHERE TA.EMP_ID = TB.EMP_ID) ) )
 FROM TEST_TABLE_B TB
 
--- ===================== ==========================================
-INSERT SQL WITH DEFAULT AND SELECT QUERY FROM ANOTHER TABLE
--- =====================
+
+--- ### INSERT SQL WITH DEFAULT AND SELECT QUERY FROM ANOTHER TABLE
 
 INSERT INTO def (field_1, field_2, field3) 
 VALUES  ('$field_1', (SELECT id_user from user_table where name = 'jhon'), '$field3')
